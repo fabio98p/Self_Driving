@@ -38,6 +38,12 @@ class Car{
         this.sensor.draw(ctx)
     }
 
+    #createPoligons(){
+        const points = []
+        rad = Math.hypot(this.width, this.height) / 2
+        const alpha = Math.atan2(this.width, this.height)
+    }
+
     #move(){
         // handle controls forward and reverswe
         if(this.controls.forward){
