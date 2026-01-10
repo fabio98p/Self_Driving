@@ -15,6 +15,26 @@ class Car{
     }
 
     update(){
+        this.#move()
+    }
+
+    draw(ctx){
+        ctx.save()
+        ctx.translate(this.x, this.y)
+        ctx.rotate(-this.angle)
+
+        ctx.beginPath()
+        ctx.rect(
+            -this.width / 2,
+            -this.height / 2,
+            this.width,
+            this.height
+        )
+        ctx.fill()
+        ctx.restore()
+    }
+
+    #move(){
         // handle controls forward and reverswe
         if(this.controls.forward){
             this.speed += this.accelleration
@@ -42,6 +62,7 @@ class Car{
             this.speed = 0
         }
 
+        // handle left and right
         if(this.speed != 0){
             let flip = (this.speed > 0) ? 1 : -1
             if(this.controls.left){
@@ -55,21 +76,5 @@ class Car{
 
         this.x -= Math.sin(this.angle) * this.speed
         this.y -= Math.cos(this.angle) * this.speed
-    }
-
-    draw(ctx){
-        ctx.save()
-        ctx.translate(this.x, this.y)
-        ctx.rotate(-this.angle)
-
-        ctx.beginPath()
-        ctx.rect(
-            -this.width / 2,
-            -this.height / 2,
-            this.width,
-            this.height
-        )
-        ctx.fill()
-        ctx.restore()
     }
 }
