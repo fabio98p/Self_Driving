@@ -44,10 +44,8 @@ class Controls{
                     this.reverse = true
                     break
             }
-            console.table(this)
         }
         document.onkeyup = (event) =>{
-            console.log(event.key)
             switch(event.key){
                 case "ArrowLeft":
                     this.left = false
@@ -74,7 +72,6 @@ class Controls{
                     this.reverse = false
                     break
             }
-            console.table(this)
         }
     }
 }
